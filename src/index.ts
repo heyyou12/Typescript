@@ -1,34 +1,35 @@
-function sumar (a:number, b:number):number {
-    return a + b;
+/*
+    ===== Desestructuracion =====
+*/
+interface Reproductor {
+    volumen:number;
+    segundo:number;
+    cancion:string;
+    detalles: Detalles;
 }
 
-const sumarFlecha = (a:number, b:number): number => {
-    return a + b;
+interface Detalles {
+    autor:string;
+    anio:number;
 }
 
-function multiplicar(a:number, b?:number, c:number = 3):number {
-    return a * c;
-}
-//const resultado = multiplicar(5,6)
-//console.log(sumar(5,10),sumarFlecha(2,6), resultado);
-
-interface PersonajeAlterno  {
-    nombre:string,
-    pv:number,
-    mostrarPuntos: () => void;
-}
-
-function calcularPuntos(personaje: PersonajeAlterno, puntos:number): void {
-    personaje.pv += puntos;
-}
-
-const personaje1: PersonajeAlterno = {
-    nombre: 'Carlos',
-    pv: 37,
-    mostrarPuntos(){
-        console.log('puntos ', this.pv);
+const reproductor: Reproductor = {
+    volumen: 60,
+    segundo: 40,
+    cancion: 'the scientist',
+    detalles: {
+        autor:'coldplay',
+        anio: 2015
     }
 }
 
-calcularPuntos(personaje1,12);
-personaje1.mostrarPuntos();
+const {volumen, segundo:seg,cancion,detalles} = reproductor;
+const {autor,anio} = detalles;
+
+//const {volumen, segundo,cancion,detalles: {autor}} = reproductor;
+
+
+console.log('El volumen actual es: ', volumen);
+console.log('El segundo actual es: ', seg);
+console.log('La cancion actual es: ', cancion);
+console.log('El autor es: ', autor);
