@@ -1,7 +1,7 @@
 /*
     ===== Desestructuracion de Argumentos=====
 */
-interface Producto {
+export interface Producto {
     descripcion: string,
     precio: number
 }
@@ -16,7 +16,7 @@ const tablet: Producto = {
     precio: 280
 }
 
-function calcularISV( productos: Producto[] ):[number,number]{
+export function calcularISV( productos: Producto[] ):[number,number]{
 
     let total= 0;
 
